@@ -15,10 +15,10 @@ public class ProductoServiceImpl implements ProductoService {
     ProductoDao productoDao;
 
     @Override
-    @Transactional (readOnly = true)
+    @Transactional(readOnly = true)
     public List<Producto> getProductos(boolean activos) {
         List<Producto> productos = productoDao.findAll();
-        
+
         if (activos) {
             productos.removeIf(x -> !x.isActivo());
         }
@@ -26,7 +26,8 @@ public class ProductoServiceImpl implements ProductoService {
         return productos;
 
     }
-     @Override
+
+    @Override
     @Transactional(readOnly = true)
     public Producto getProducto(Producto producto) {
         return productoDao.findById(producto.getIdProducto()).orElse(null);
@@ -43,7 +44,21 @@ public class ProductoServiceImpl implements ProductoService {
     public void delete(Producto producto) {
         productoDao.delete(producto);
     }
-    
-}
 
- 
+    @Override
+    public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> metodoJPQL(double precioInf, double precioSup) {
+        return productoDao.metodoJPQL(precioInf, precioSup);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> metodoNativo(double precioInf, double precioSup) {
+        return productoDao.metodoNativo(precioInf, precioSup);
+    }
+}

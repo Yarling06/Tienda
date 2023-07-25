@@ -14,4 +14,6 @@ public interface CategoriaService {
     public void save (Categoria categoria );
     
     public void delete(Categoria categoria);
+    
+    public List<Categoria> getPorDescripcion (String descripcion);
 }
