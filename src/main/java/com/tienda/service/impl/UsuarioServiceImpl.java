@@ -44,4 +44,9 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
         return new User(usuario.getUsername(), usuario.getPassword(), roles);
 
     }
+
+    @Override
+    public Usuario getUsuarioPorUsername(String username) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
